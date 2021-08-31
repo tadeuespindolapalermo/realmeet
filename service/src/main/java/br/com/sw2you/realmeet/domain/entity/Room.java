@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "room")
 public class Room {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -74,19 +73,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return (
-            "Room{" +
-            "id=" +
-            id +
-            ", name='" +
-            name +
-            '\'' +
-            ", seats=" +
-            seats +
-            ", active=" +
-            active +
-            '}'
-        );
+        return "Room{id=" + id + ", name='" + name + '\'' + ", seats=" + seats + ", active=" +  active + '}';
     }
 
     public static Builder newBuilder() {
