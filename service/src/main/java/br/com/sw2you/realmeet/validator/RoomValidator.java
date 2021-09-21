@@ -9,7 +9,6 @@ import br.com.sw2you.realmeet.api.model.UpdateRoomDTO;
 import br.com.sw2you.realmeet.domain.repository.RoomRepository;
 import java.util.Objects;
 import org.springframework.stereotype.Component;
-import org.hibernate.sql.Update;
 
 @Component
 public class RoomValidator {
@@ -66,7 +65,7 @@ public class RoomValidator {
         roomRepository
             .findByNameAndActive(name, true)
             .ifPresent(room -> {
-                if (!isNull(roomIdToExclude) && !Objects.equals(room.getId(), roomIdToExclude)) {
+                if (isNull(roomIdToExclude) || !Objects.equals(room.getId(), roomIdToExclude)) {
                     validationErrors.add(ROOM_NAME, ROOM_NAME + DUPLICATE);
                 }
             });
