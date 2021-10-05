@@ -65,7 +65,7 @@ class AllocationApiIntegrationTest extends BaseIntegrationTest {
         var room = roomRepository.saveAndFlush(newRoomBuilder().build());
         var allocation = allocationRepository.saveAndFlush(newAllocationBuilder(room).build());
 
-        //api.deleteAllocation(allocation.getId());
+        api.deleteAllocation(allocation.getId());
         assertFalse(allocationRepository.findById(allocation.getId()).isPresent());
     }
 
@@ -78,11 +78,11 @@ class AllocationApiIntegrationTest extends BaseIntegrationTest {
                 .endAt(now().minusDays(1).plusHours(1))
                 .build()
         );
-        //assertThrows(HttpClientErrorException.UnprocessableEntity.class, () -> api.deleteAllocation(allocation.getId()));
+        assertThrows(HttpClientErrorException.UnprocessableEntity.class, () -> api.deleteAllocation(allocation.getId()));
     }
 
     @Test
     void testDeleteAllocationDoesNotExist() {
-        //assertThrows(HttpClientErrorException.NotFound.class, () -> api.deleteAllocation(1));
+        assertThrows(HttpClientErrorException.NotFound.class, () -> api.deleteAllocation(1L));
     }
 }
