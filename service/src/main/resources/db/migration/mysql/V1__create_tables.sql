@@ -5,3 +5,4 @@ CREATE TABLE `room` (
   `active`  TINYINT     NOT NULL,
   PRIMARY KEY (`id`)
 );
+

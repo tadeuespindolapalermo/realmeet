@@ -20,7 +20,7 @@ import static br.com.sw2you.realmeet.utils.TestConstants.TEST_CLIENT_API_KEY;
 import static br.com.sw2you.realmeet.utils.TestConstants.TEST_CLIENT_DESCRIPTION;
 import static org.mockito.BDDMockito.given;
 
-@ActiveProfiles(profiles = "integration-test")
+@ActiveProfiles(profiles = "integration-test-mysql")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = Application.class)
 public abstract class BaseIntegrationTest {
     @Autowired

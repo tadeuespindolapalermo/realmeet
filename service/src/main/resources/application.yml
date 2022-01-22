@@ -28,6 +28,8 @@ spring:
       mail.smtp.port: 587
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
+  flyway:
+    locations: classpath:/db/migration/mysql
 
 # =============================
 # = Logging
@@ -54,3 +56,9 @@ realmeet:
       allocationDeleted:
         subject: Agendamento de sala excluído
         templateName: allocation-deleted.html
+      allocationReport:
+        subject: Relatório de agendamento de sala
+        templateName: allocation-report.html
+  reports:
+    allocationReport:
+      maxMonthsInterval: 24
